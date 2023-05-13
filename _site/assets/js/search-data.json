@@ -1,0 +1,23 @@
+{"0": {
+    "doc": "Home",
+    "title": "Welcome to my editorials page!",
+    "content": "My collection to solutions for various interview/competitive programming problems. ",
+    "url": "/#welcome-to-my-editorials-page",
+    
+    "relUrl": "/#welcome-to-my-editorials-page"
+  },"1": {
+    "doc": "Home",
+    "title": "Home",
+    "content": " ",
+    "url": "/",
+    
+    "relUrl": "/"
+  },"2": {
+    "doc": "Leetcode 55 - Spiral Matrix",
+    "title": "Leetcode 55 - Spiral Matrix",
+    "content": "Given a m x n matrix, return all elements of the matrix in spiral order. We increment or decrement through the rows and columns, marking visited cells with an X. While incrementing/decrementing, we can check the next row/column to see if we will encounter a visited cell. If we do, we can switch which direction the spiral is going. | We start at the top left corner and will increment through the columns of the first row. | We add and mark the elements visited (A) and increment a counter variable. | We then check if we have reached the end (outside of the matrix or next cell is visited). If we have, we flip the direction (inc/dec) of the current orientation (i.e. if we were incrementing through the columns, we would be decrementing the next time we are in the column orientation), and then switch orientation. Otherwise, we continue through the row/col as normal (B). | This loops until the counter variable is equal to number of elements in the matrix. | . T: O(m*n) - goes through all the elements in the matrix once . S: O(1) - uses the argument matrix passed in . class Solution(object): def spiralOrder(self, matrix): \"\"\" :type matrix: List[List[int]] :rtype: List[int] \"\"\" m = len(matrix) n = len(matrix[0]) # indicate when the spiral has covered # all the elements in the matrix numElems = m*n countX = 0 # direction spiral is going xOrY = False # true - x, false - y dX = True # true - increment, false - decrement dY = True # indices x, y = 0, 0 result = [] while (countX != numElems): # A if (matrix[x][y] != 'X'): result.append(matrix[x][y]) matrix[x][y] = 'X' countX += 1 # B if xOrY: nextRow = x+1 if dX else x-1 if (nextRow == m or matrix[nextRow][y] == 'X'): dX = not dX xOrY = not xOrY else: x += 1 if dX else -1 else: nextCol = y+1 if dY else y-1 if (nextCol == n or matrix[x][nextCol] == 'X'): dY = not dY xOrY = not xOrY else: y += 1 if dY else -1 return result . ",
+    "url": "/leetcode/lc-55.html",
+    
+    "relUrl": "/leetcode/lc-55.html"
+  }
+}
